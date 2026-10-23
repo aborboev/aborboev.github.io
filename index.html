@@ -17,7 +17,7 @@
 :root{
   --bg:#FFFFFF; --alt:#F5F5F7; --ink:#1D1D1F; --muted:#6E6E73; --line:#D2D2D7;
   --link:#0066CC; --tile:#FFFFFF;
-  --band:#000000; --band-ink:#F5F5F7; --band-muted:#A1A1A6; --band-link:#2997FF;
+  --band:#000000; --band-ink:#F5F5F7; --band-muted:#A1A1A6; --band-link:#2997FF; --band-tile:#1D1D1F; --band-line:#424245;
   --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Inter","Helvetica Neue",Arial,sans-serif;
   --wrap:1024px; --r:22px;
 }
@@ -131,6 +131,35 @@ nav.gn ul a:hover{opacity:1;text-decoration:none}
 @media (max-width:860px){.kit{grid-template-columns:1fr 1fr}}
 @media (max-width:420px){.kit{grid-template-columns:1fr}}
 
+/* about */
+.about-photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:clamp(36px,5vw,56px)}
+.about-photos .shot{margin:0;aspect-ratio:4/3}
+.about-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px;text-align:left}
+.about-card{background:var(--band-tile);border-radius:var(--r);padding:28px 26px;min-width:0}
+.about-card h3{font-size:14px;font-weight:600;color:var(--band-muted);margin:0 0 14px;letter-spacing:-.005em}
+.about-card .big{font-size:clamp(24px,2.6vw,30px);font-weight:700;letter-spacing:-.025em;line-height:1.12;margin:0;color:var(--band-ink)}
+.about-card p{margin:10px 0 0;color:var(--band-muted);font-size:15px}
+.school{display:flex;align-items:center;gap:14px;margin:0 0 16px}
+.school img{width:56px;height:56px;border-radius:12px;background:#fff;padding:4px;flex:none}
+.school img.fill{padding:0;object-fit:cover}
+.about-card .school:last-child{margin-bottom:0}
+.school b{display:block;font-size:17px;font-weight:600;color:var(--band-ink);line-height:1.25}
+.school span{display:block;font-size:13px;color:var(--band-muted)}
+.honors{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.honors li{font-size:15px;color:var(--band-ink);padding-left:16px;position:relative}
+.honors li::before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--band-link)}
+.langs{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.langs li{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:4px 12px}
+.langs .ln{font-size:17px;font-weight:600;color:var(--band-ink)}
+.langs .lv{font-size:13px;color:var(--band-muted);grid-column:1}
+.dots{display:flex;gap:4px;grid-row:1/3;grid-column:2}
+.dots i{width:8px;height:8px;border-radius:50%;background:var(--band-line)}
+.dots i.on{background:var(--band-link)}
+.route{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:16px 0 0;font-size:15px;font-weight:600;color:var(--band-ink)}
+.route span{color:var(--band-muted);font-weight:400}
+@media (max-width:860px){.about-grid{grid-template-columns:1fr}}
+@media (max-width:560px){.about-photos{grid-template-columns:1fr}}
+
 /* contact + footer */
 .contact{padding-block:clamp(72px,11vw,128px)}
 .contact h2{font-size:clamp(40px,6.6vw,72px);font-weight:700;line-height:1.04;letter-spacing:-.03em}
@@ -169,6 +198,7 @@ footer .wrap{padding-block:18px 26px;display:flex;justify-content:space-between;
       <li><a href="#work">Work</a></li>
       <li><a href="#next">In progress</a></li>
       <li><a href="#experience">Experience</a></li>
+      <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -337,6 +367,44 @@ footer .wrap{padding-block:18px 26px;display:flex;justify-content:space-between;
       <div><h3>Analysis</h3><ul><li>FEA</li><li>MATLAB, numerical methods</li><li>R, Python</li><li>Mechanics of materials</li></ul></div>
       <div><h3>Manufacturing</h3><ul><li>Mill, lathe, CNC</li><li>3D printing</li><li>CFRP layup, vacuum bagging</li><li>DFM</li></ul></div>
       <div><h3>Testing</h3><ul><li>ASTM D3039 tensile</li><li>Load-cell force testing</li><li>Fixture design</li><li>Vehicle diagnostics</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="feat dark" id="about">
+  <div class="wrap center">
+    <p class="eyebrow">Bishkek · Hong Kong · Florida</p>
+    <h2>About me.</h2>
+    <p class="lead">Raised in Kyrgyzstan, schooled in Hong Kong, now building things in Florida. When I'm not in the shop, I'm usually on a trail somewhere.</p>
+    <div class="about-photos">
+      <button class="shot" data-cap="Palo Duro Canyon, Texas"><img src="about-canyon.jpg" alt="Aian sitting on a stone wall above a wide canyon at sunset" loading="lazy"></button>
+      <button class="shot" data-cap="Horseshoe Park, Rocky Mountain National Park"><img src="about-rockies.jpg" alt="Aian giving a thumbs up in front of mountains in Rocky Mountain National Park" loading="lazy"></button>
+    </div>
+    <div class="about-grid">
+      <article class="about-card">
+        <h3>Education &amp; honors</h3>
+        <div class="school"><img src="uwc-lpc.png" alt="UWC Li Po Chun logo"><div><b>UWC Li Po Chun</b><span>United World College of Hong Kong · IB Diploma</span></div></div>
+        <div class="school"><img src="icon-davis-globe.png" alt="Davis United World College Scholars Program logo"><div><b>Davis UWC Scholar</b><span>Davis United World College Scholars Program</span></div></div>
+        <div class="school"><img class="fill" src="icon-yale.png" alt="Yale Young Global Scholars logo"><div><b>Yale Young Global Scholars</b><span>Alumnus</span></div></div>
+        <div class="school"><img src="icon-honors.png" alt="UF Honors Program logo"><div><b>UF Honors Program</b><span>University of Florida · Mechanical Engineering</span></div></div>
+      </article>
+      <article class="about-card">
+        <h3>Languages</h3>
+        <ul class="langs">
+          <li><span class="ln">English</span><span class="lv">Fluent</span><span class="dots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></li>
+          <li><span class="ln">Russian</span><span class="lv">Fluent</span><span class="dots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></li>
+          <li><span class="ln">Kyrgyz</span><span class="lv">Fluent</span><span class="dots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></li>
+          <li><span class="ln">Spanish</span><span class="lv">Conversational</span><span class="dots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></li>
+          <li><span class="ln">German</span><span class="lv">Beginner</span><span class="dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i></span></li>
+        </ul>
+      </article>
+      <article class="about-card">
+        <h3>Outside engineering</h3>
+        <p class="big">Hiking and travel.</p>
+        <p>National parks, canyons, and mountain trails whenever the schedule allows.</p>
+        <div class="route">Bishkek <span>→</span> Hong Kong <span>→</span> Gainesville</div>
+      </article>
     </div>
   </div>
 </section>
