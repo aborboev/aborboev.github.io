@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aian Borboev Portfolio</title>
+<meta name="description" content="Mechanical engineering portfolio of Aian Borboev, University of Florida: robotics, research, composites, and machining projects.">
+<meta property="og:title" content="Aian Borboev | Mechanical Engineering Portfolio">
+<meta property="og:description" content="Robotics, research, composites, and machining projects from a UF mechanical engineering student.">
+<meta property="og:image" content="img/desk-arm-render.jpg">
+<style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: Apple-style product page. Centered headline blocks, one big image per project, alternating white / light-gray / black bands. */
+:root{
+  --bg:#FFFFFF; --alt:#F5F5F7; --ink:#1D1D1F; --muted:#6E6E73; --line:#D2D2D7;
+  --link:#0066CC; --tile:#FFFFFF;
+  --band:#000000; --band-ink:#F5F5F7; --band-muted:#A1A1A6; --band-link:#2997FF;
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Inter","Helvetica Neue",Arial,sans-serif;
+  --wrap:1024px; --r:22px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#000000; --alt:#161617; --ink:#F5F5F7; --muted:#A1A1A6; --line:#3A3A3C;
+  --link:#2997FF; --tile:#1D1D1F; --band:#0B0B0C; --band-ink:#F5F5F7; --band-muted:#A1A1A6; --band-link:#2997FF; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#000000; --alt:#161617; --ink:#F5F5F7; --muted:#A1A1A6; --line:#3A3A3C;
+  --link:#2997FF; --tile:#1D1D1F; --band:#0B0B0C; --band-ink:#F5F5F7; --band-muted:#A1A1A6; --band-link:#2997FF; color-scheme:dark}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.47 var(--font);letter-spacing:-.022em;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(22px,env(safe-area-inset-left,0px));padding-right:max(22px,env(safe-area-inset-right,0px))}
+.center{text-align:center}
+a{color:var(--link);text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible,button:focus-visible{outline:2px solid var(--link);outline-offset:3px;border-radius:6px}
+h1,h2,h3{text-wrap:balance;margin:0}
+
+/* nav */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+nav.gn{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent)}
+nav.gn .wrap{display:flex;align-items:center;justify-content:space-between;height:48px;gap:16px}
+nav.gn .name{color:var(--ink);font-weight:600;font-size:15px;letter-spacing:-.01em}
+nav.gn ul{display:flex;gap:clamp(14px,3.5vw,32px);list-style:none;margin:0;padding:0}
+nav.gn ul a{color:var(--ink);opacity:.8;font-size:12px;letter-spacing:-.01em}
+nav.gn ul a:hover{opacity:1;text-decoration:none}
+
+/* hero */
+.hero{padding-block:clamp(64px,11vw,128px) clamp(32px,5vw,56px)}
+.eyebrow{font-size:clamp(17px,1.9vw,21px);font-weight:600;margin:0 0 8px;color:var(--muted);letter-spacing:.004em}
+.hero h1{font-size:clamp(48px,9vw,96px);font-weight:700;line-height:1.02;letter-spacing:-.035em}
+.hero .sub{font-size:clamp(21px,2.6vw,28px);line-height:1.25;font-weight:500;max-width:30ch;margin:18px auto 0;letter-spacing:-.015em}
+.ctas{display:flex;gap:28px;justify-content:center;align-items:center;flex-wrap:wrap;margin:26px 0 0;font-size:clamp(17px,1.8vw,21px)}
+.ctas a::after{content:" ›"}
+.pill{display:inline-block;background:var(--link);color:#fff;padding:11px 22px;border-radius:980px;font-size:17px}
+.pill:hover{text-decoration:none;filter:brightness(1.08)}
+.pill::after{content:""!important}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:clamp(48px,7vw,80px)}
+.stat{background:var(--alt);border-radius:var(--r);padding:28px 22px;text-align:center;min-width:0}
+.stat b{display:block;font-size:clamp(34px,4.4vw,48px);font-weight:700;letter-spacing:-.03em;line-height:1.05;font-variant-numeric:tabular-nums}
+.stat span{display:block;margin-top:8px;font-size:14px;color:var(--muted);letter-spacing:-.01em}
+@media (max-width:760px){.stats{grid-template-columns:1fr 1fr}}
+
+/* feature sections */
+.feat{padding-block:clamp(64px,10vw,112px)}
+.feat.alt{background:var(--alt)}
+.feat.dark{background:var(--band);color:var(--band-ink)}
+.feat.dark .eyebrow,.feat.dark .muted,.feat.dark .fact p,.feat.dark .fact span{color:var(--band-muted)}
+.feat.dark a{color:var(--band-link)}
+.feat h2{font-size:clamp(40px,6.6vw,72px);font-weight:700;line-height:1.04;letter-spacing:-.03em}
+.feat .lead{font-size:clamp(19px,2.3vw,26px);line-height:1.3;font-weight:500;max-width:34ch;margin:16px auto 0;letter-spacing:-.012em}
+.shot{display:block;width:100%;max-width:100%;margin:clamp(36px,5vw,56px) auto 0;padding:0;border:0;border-radius:var(--r);overflow:hidden;background:var(--tile);cursor:zoom-in}
+.shot img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.shot:hover img{transform:scale(1.02)}
+.shot.wide{aspect-ratio:16/9}
+.shot.cad{aspect-ratio:16/9;background:#FFFFFF}
+.shot.cad img{object-fit:contain;padding:4%}
+
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,4vw,48px);margin-top:clamp(36px,5vw,56px);text-align:left}
+.fact{min-width:0}
+.fact h3{font-size:14px;font-weight:600;color:var(--muted);letter-spacing:-.005em;margin:0 0 8px}
+.feat.dark .fact h3{color:var(--band-muted)}
+.fact p{margin:0;font-size:17px;color:var(--ink)}
+.feat.dark .fact p{color:var(--band-ink)}
+.fact.big b{display:block;font-size:clamp(40px,5vw,56px);font-weight:700;letter-spacing:-.035em;line-height:1;font-variant-numeric:tabular-nums}
+.fact.big span{display:block;margin-top:10px;font-size:15px;color:var(--muted)}
+.fact.big b.grad{background:linear-gradient(90deg,#0A84FF,#5E5CE6);-webkit-background-clip:text;background-clip:text;color:transparent}
+@media (max-width:760px){.facts{grid-template-columns:1fr}.fact.big{order:-1}}
+
+/* gallery strip */
+.strip{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 0 10px;margin-top:28px;scrollbar-width:thin}
+.strip .tile{flex:0 0 clamp(180px,28vw,260px);aspect-ratio:3/4;scroll-snap-align:start;border:0;padding:0;border-radius:18px;overflow:hidden;background:var(--tile);cursor:zoom-in}
+.strip .tile.land{aspect-ratio:4/3;flex-basis:clamp(240px,36vw,340px)}
+.strip .tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.strip .tile.c img{object-fit:contain;background:#fff;padding:6%}
+.strip .tile:hover img{transform:scale(1.03)}
+
+/* two-up tiles */
+.twoup{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:clamp(36px,5vw,56px)}
+.tile2{background:var(--tile);border-radius:var(--r);padding:clamp(28px,4vw,44px);text-align:center;min-width:0}
+.feat.alt .tile2{background:var(--bg)}
+.tile2 .eyebrow{font-size:14px}
+.tile2 h3{font-size:clamp(28px,3.4vw,40px);font-weight:700;letter-spacing:-.025em;line-height:1.08}
+.tile2 p{margin:14px auto 0;max-width:36ch;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:18px 0 0;padding:0;list-style:none}
+.chips li{font-size:12px;padding:5px 11px;border-radius:980px;background:var(--alt);color:var(--muted)}
+.feat.alt .chips li{background:var(--alt)}
+@media (max-width:760px){.twoup{grid-template-columns:1fr}}
+
+/* experience */
+.roles{margin-top:clamp(36px,5vw,56px);border-top:1px solid var(--line);text-align:left}
+.role{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px 32px;align-items:center;padding:24px 0;border-bottom:1px solid var(--line)}
+.role h3{font-size:21px;font-weight:600;letter-spacing:-.015em}
+.role .org{color:var(--muted);font-size:17px;margin:2px 0 0}
+.role p{margin:8px 0 0;max-width:60ch}
+.role .pics{display:flex;gap:10px}
+.role .pics button{width:92px;height:92px;border:0;padding:0;border-radius:14px;overflow:hidden;cursor:zoom-in;background:var(--tile)}
+.role .pics img{width:100%;height:100%;object-fit:cover;display:block}
+@media (max-width:640px){.role{grid-template-columns:1fr}}
+
+/* toolkit */
+.kit{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:clamp(36px,5vw,56px);text-align:left}
+.kit div{background:var(--bg);border-radius:var(--r);padding:26px 22px;min-width:0}
+.kit h3{font-size:21px;font-weight:700;letter-spacing:-.015em;margin:0 0 12px}
+.kit ul{list-style:none;margin:0;padding:0;display:grid;gap:7px;color:var(--muted);font-size:15px}
+@media (max-width:860px){.kit{grid-template-columns:1fr 1fr}}
+@media (max-width:420px){.kit{grid-template-columns:1fr}}
+
+/* contact + footer */
+.contact{padding-block:clamp(72px,11vw,128px)}
+.contact h2{font-size:clamp(40px,6.6vw,72px);font-weight:700;line-height:1.04;letter-spacing:-.03em}
+.contact .lead{font-size:clamp(19px,2.3vw,24px);color:var(--muted);max-width:36ch;margin:16px auto 0;font-weight:500}
+.contact .ctas{margin-top:30px}
+.contact .todo{display:block;margin-top:18px;font-size:13px;color:var(--muted)}
+footer{background:var(--alt);font-size:12px;color:var(--muted);letter-spacing:-.005em}
+footer .wrap{padding-block:18px 26px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line)}
+
+.email-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:center;margin-top:30px}
+.email{font-size:clamp(22px,3vw,30px);font-weight:600;letter-spacing:-.02em;user-select:all;overflow-wrap:anywhere}
+.pill.copy{border:0;cursor:pointer;font:inherit;font-size:15px;padding:9px 18px}
+.contact .ctas{margin-top:22px}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:20;margin:0;background:rgba(0,0,0,.9);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;padding:max(56px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(48px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.lb img{max-width:100%;max-height:100%;object-fit:contain;border-radius:14px;background:#fff}
+.lb figcaption{position:absolute;left:0;right:0;bottom:max(16px,env(safe-area-inset-bottom,0px));text-align:center;color:#D2D2D7;font-size:14px}
+.lb button{position:absolute;top:max(14px,env(safe-area-inset-top,0px));right:max(14px,env(safe-area-inset-right,0px));width:36px;height:36px;border-radius:50%;border:0;background:rgba(255,255,255,.16);color:#fff;font-size:18px;cursor:pointer}
+
+/* finding stats */
+.finds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:clamp(28px,4vw,40px);text-align:left}
+.find{background:var(--alt);border-radius:18px;padding:22px 20px;min-width:0}
+.feat.alt .find{background:var(--bg)}
+.find b{display:block;font-size:clamp(28px,3.2vw,36px);font-weight:700;letter-spacing:-.03em;line-height:1.05;font-variant-numeric:tabular-nums}
+.find p{margin:8px 0 0;font-size:15px;color:var(--muted);line-height:1.4}
+@media (max-width:760px){.finds{grid-template-columns:1fr}}
+.shot.render{aspect-ratio:2/1;background:#EDEDED}
+</style>
+</head>
+<body>
+<nav class="gn" aria-label="Sections">
+  <div class="wrap">
+    <a class="name" href="#top">Aian Borboev</a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#next">In progress</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap center">
+    <p class="eyebrow">Mechanical Engineering · University of Florida</p>
+    <h1>Aian Borboev</h1>
+    <p class="sub">Designs it in CAD. Proves it with FEA and testing. Builds it in the shop.</p>
+    <div class="ctas">
+      <a class="pill" href="#work">See the work</a>
+      <a href="#contact">Get in touch</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>235/240</b><span>CSWA SolidWorks score</span></div>
+      <div class="stat"><b>400 rpm</b><span>from an air engine I machined</span></div>
+      <div class="stat"><b>7</b><span>engineers on the arm team I lead</span></div>
+      <div class="stat"><b>55</b><span>vehicles diagnosed and repaired</span></div>
+    </div>
+  </div>
+</header>
+
+<main id="work">
+
+<!-- Desktop arm -->
+<section class="feat alt">
+  <div class="wrap center">
+    <p class="eyebrow">Personal project · 2026</p>
+    <h2>4-DOF desktop arm.<br>Math first, then CAD.</h2>
+    <p class="lead">Kinematics and dynamics in MATLAB, built on real mass properties from SolidWorks, drove every design change.</p>
+    <button class="shot render" data-cap="Arm assembly render, SolidWorks"><img src="img/desk-arm-render.jpg" alt="Render of a white and blue 4-DOF desktop robotic arm on a black base housing an Arduino" loading="lazy"></button>
+    <div class="facts">
+      <div class="fact"><h3>The approach</h3><p>Before building anything, I wrote the math that describes how the arm moves and what loads it sees, in MATLAB, using the real weights of my SolidWorks parts.</p></div>
+      <div class="fact"><h3>What it changed</h3><p>I mapped everywhere the arm can reach, how hard the motors work at each point, and when it would tip over. That told me where to cut weight and which motors to buy.</p></div>
+      <div class="fact big"><h3>The result</h3><b class="grad">−30%</b><span>load on the shoulder motor from the first arm link, after cutting out excess material</span></div>
+    </div>
+    <div class="strip" aria-label="Desktop arm analysis">
+      <button class="tile land c" data-cap="Workspace, shoulder load, and tipping analysis in MATLAB, 20 g payload"><img src="img/desk-arm-workspace.png" alt="MATLAB plot of the arm's reachable workspace colored by shoulder static load, with a sample pose" loading="lazy"></button>
+    </div>
+  </div>
+</section>
+
+<!-- Needle guide -->
+<section class="feat">
+  <div class="wrap center">
+    <p class="eyebrow">Bio/Materials Tribology Lab · UF</p>
+    <h2>Needle guide.</h2>
+    <p class="lead">A printed V-cradle that keeps the needle straight on its way into the sample. Next up: redesigning the rig's entire hardware system.</p>
+    <button class="shot wide" data-cap="Needle guide, rendered in SolidWorks" style="background:#EDEDED"><img src="img/needle-guide-render.jpg" alt="Render of the blue V-shaped needle guide with mounting tabs"></button>
+    <div class="facts">
+      <div class="fact"><h3>The problem</h3><p>In hydrogel insertion tests, the needle bent sideways before entering the sample, which skewed the friction and force data.</p></div>
+      <div class="fact"><h3>What I did</h3><p>Designed the guide in SolidWorks, then printed and iterated it on the rig. I also analyze the test data in R, turning raw force-vs-time runs into plots and summary tables for a paper in progress.</p></div>
+      <div class="fact big"><h3>Estimated result</h3><b class="grad">~20%</b><span>less needle deflection during insertion</span></div>
+    </div>
+    <div class="strip" aria-label="Needle guide photos">
+      <button class="tile" data-cap="Printed guide"><img src="img/needle-guide-print.jpg" alt="Printed resin needle guide held in hand" loading="lazy"></button>
+      <button class="tile" data-cap="Needle track in hydrogel under the microscope"><img src="img/hydrogel-microscope.jpg" alt="Microscope view of a needle track in fluorescent hydrogel" loading="lazy"></button>
+      <button class="tile" data-cap="Measuring needle deflection on the rig to size the problem"><img src="img/needle-guide-loadcell.jpg" alt="Needle under the load cell with a ruler used to measure deflection" loading="lazy"></button>
+    </div>
+  </div>
+</section>
+
+<!-- CFRP -->
+<section class="feat dark">
+  <div class="wrap center">
+    <p class="eyebrow">Solar Gators · Structures</p>
+    <h2>Carbon fiber, laid up by hand.</h2>
+    <p class="lead">Sandwich panels that stiffen the aerobody while keeping weight down.</p>
+    <button class="shot wide" data-cap="Solar Gators car in the shop"><img src="img/solar-car.jpg" alt="Solar Gators car body in the team workshop" loading="lazy" style="object-position:50% 60%"></button>
+    <div class="facts">
+      <div class="fact"><h3>Process</h3><p>Wet layup and vacuum bagging of carbon fiber sandwich panels, plus research into honeycomb cores to cut material without losing strength.</p></div>
+      <div class="fact"><h3>Testing</h3><p>Coupons tested to the ASTM D3039 tensile standard before the panels were used to reinforce the car.</p></div>
+      <div class="fact big"><h3>The result</h3><b>Raced.</b><span>The reinforced car went on to compete.</span></div>
+    </div>
+    <div class="strip" aria-label="Carbon fiber photos">
+      <button class="tile land" data-cap="Wet layup of carbon twill on a prepared plate"><img src="img/cfrp-wetlayup.jpg" alt="Gloved hands smoothing resin-wetted carbon fiber twill inside a taped boundary" loading="lazy"></button>
+      <button class="tile" data-cap="Breather layer and sealant tape before vacuum bagging"><img src="img/cfrp-bagging.jpg" alt="White breather cloth over a layup framed by sealant tape, with vacuum port" loading="lazy"></button>
+      <button class="tile land" data-cap="Cured CFRP skins and honeycomb core samples"><img src="img/cfrp-sandwich.jpg" alt="Cured carbon fiber strips stacked on a honeycomb core sample" loading="lazy"></button>
+    </div>
+  </div>
+</section>
+
+<!-- Mixer -->
+<section class="feat alt">
+  <div class="wrap center">
+    <p class="eyebrow">EML2322L · Design and Manufacturing Lab</p>
+    <h2>Air-powered mixer.<br>Built for $65.</h2>
+    <p class="lead">Designed under a hard budget, then machined in the shop. It runs at 350–400 rpm.</p>
+    <button class="shot wide" data-cap="Air-engine mixer, rendered in SolidWorks" style="background:#FFFFFF"><img src="img/mixer-render.jpg" alt="Render of the air-engine mixer: steel C-frame, engine and pulleys on top, mason jar below" loading="lazy"></button>
+    <div class="facts">
+      <div class="fact"><h3>The design</h3><p>Two-belt drive through a jackshaft, with step pulleys for two mixer speeds (about 267 and 133 rpm from a 400 rpm engine) and an idler tensioner. Belt lengths and tensioner placement worked out by hand.</p></div>
+      <div class="fact"><h3>The build</h3><p>Machined the air engine on the mill, lathe, and CNC, with every part designed for the shop's capabilities. The finished engine runs at 350–400 rpm.</p></div>
+      <div class="fact big"><h3>Budget</h3><b class="grad">$65</b><span>total, working mixer delivered</span></div>
+    </div>
+    <div class="strip" aria-label="Mixer photos">
+      <button class="tile land" data-cap="The machined air engine, 350–400 rpm"><img src="img/air-engine-wide.jpg" alt="Machined aluminum air engine with flywheel on a steel base" loading="lazy"></button>
+      <button class="tile c" data-cap="Design notes: pulley system, speed ratios, idler tensioner"><img src="img/mixer-sketch-12.jpg" alt="Hand-drawn notes on the pulley system, speed ratio calculations, and idler tensioner bracket" loading="lazy"></button>
+      <button class="tile c" data-cap="Design notes: high and low speed belt layouts, belt length calculations"><img src="img/mixer-sketch-13.jpg" alt="Hand-drawn belt layouts for high and low speed with belt length calculations" loading="lazy"></button>
+    </div>
+  </div>
+</section>
+
+<!-- Nose cone -->
+<section class="feat">
+  <div class="wrap center">
+    <p class="eyebrow">SSDC · NASA CanSat competition</p>
+    <h2>Nose cone and payload.</h2>
+    <p class="lead">Shaped for flight, sized for the payload, built to the competition rules.</p>
+    <button class="shot cad" data-cap="Nose cone and payload container assembly"><img src="img/nosecone-cad.jpg" alt="Fusion 360 render of the nose cone and payload container" loading="lazy"></button>
+    <div class="facts">
+      <div class="fact"><h3>The brief</h3><p>A nose cone and payload container that meet the competition's size and flight requirements, including its apogee target.</p></div>
+      <div class="fact"><h3>What I did</h3><p>Modeled the nose cone and internal payload structure in Fusion 360 as one full assembly.</p></div>
+      <div class="fact big"><h3>The result</h3><b class="grad">Passed.</b><span>Met requirements and aero tests for apogee</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- In progress -->
+<section class="feat alt" id="next">
+  <div class="wrap center">
+    <p class="eyebrow">Fall 2026</p>
+    <h2>In progress.</h2>
+    <div class="twoup">
+      <article class="tile2">
+        <p class="eyebrow">Embodied Intelligence Group · Mechanical lead</p>
+        <h3>ARM0</h3>
+        <p>A 6-DOF robot arm. I supervise the seven-person mechanical team and serve as one of its chief engineers on the arm's mechanical design.</p>
+        <ul class="chips"><li>6-DOF</li><li>Team of 7</li><li>Jira</li></ul>
+      </article>
+      <article class="tile2">
+        <p class="eyebrow">Desktop arm · next steps</p>
+        <h3>From model to motion</h3>
+        <p>Gripper design, then printing and assembly, Arduino control through a browser interface, and closed-loop feedback with trajectory planning. The full build goes on GitHub.</p>
+        <ul class="chips"><li>Arduino</li><li>Gripper</li><li>GitHub</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Experience -->
+<section class="feat" id="experience">
+  <div class="wrap center">
+    <h2>Experience.</h2>
+    <div class="roles">
+      <div class="role"><div><h3>Undergraduate Teaching Assistant</h3><p class="org">EML2023 Computer-Aided Design · Fall 2026 – now</p><p>Weekly office hours and grading for UF's SolidWorks course.</p></div></div>
+      <div class="role"><div><h3>Undergraduate Researcher</h3><p class="org">Bio/Materials Tribology Lab · Dr. Dunn</p><p>Friction and fracture mechanics of needle insertion into soft materials. Fixture design, testing, and data analysis.</p></div></div>
+      <div class="role"><div><h3>Structures Engineer</h3><p class="org">Solar Gators</p><p>CFRP composites, vacuum bagging, and structural analysis for the team's solar car.</p></div></div>
+      <div class="role">
+        <div><h3>Automotive Technician</h3><p class="org">Toyota dealership</p><p>Diagnosed and repaired 55 vehicles, including electrified models. Learned shop safety and service procedure on the floor.</p></div>
+        <div class="pics">
+          <button data-cap="Service bay"><img src="img/toyota-lift.jpg" alt="Toyota truck on a two-post lift" loading="lazy"></button>
+          <button data-cap="Engine bay diagnosis"><img src="img/toyota-engine.jpg" alt="Open engine bay of a Toyota sedan" loading="lazy"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Toolkit -->
+<section class="feat alt" id="toolkit">
+  <div class="wrap center">
+    <h2>Toolkit.</h2>
+    <div class="kit">
+      <div><h3>CAD</h3><ul><li>SolidWorks (CSWA)</li><li>CATIA</li><li>Fusion 360</li><li>GD&amp;T, Y14.5</li></ul></div>
+      <div><h3>Analysis</h3><ul><li>FEA</li><li>MATLAB, numerical methods</li><li>R, Python</li><li>Mechanics of materials</li></ul></div>
+      <div><h3>Manufacturing</h3><ul><li>Mill, lathe, CNC</li><li>3D printing</li><li>CFRP layup, vacuum bagging</li><li>DFM</li></ul></div>
+      <div><h3>Testing</h3><ul><li>ASTM D3039 tensile</li><li>Load-cell force testing</li><li>Fixture design</li><li>Vehicle diagnostics</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap center">
+    <h2>Let's build something.</h2>
+    <p class="lead">Looking for a 2027 internship or co-op in mechanical design, test, or manufacturing.</p>
+    <div class="email-row">
+      <span class="email" id="email">a.borboev@ufl.edu</span>
+      <button type="button" class="pill copy" id="copyEmail">Copy email</button>
+    </div>
+    <div class="ctas">
+      <a href="mailto:a.borboev@ufl.edu">Send an email</a>
+      <a href="https://www.linkedin.com/in/aian-borboev-147779238" target="_blank" rel="noopener">Connect on LinkedIn</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 Aian Borboev</span><span>Gainesville, FL · University of Florida</span></div>
+</footer>
+
+<figure class="lb" id="lb" hidden>
+  <img id="lbImg" alt="">
+  <figcaption id="lbCap"></figcaption>
+  <button type="button" id="lbClose" aria-label="Close">✕</button>
+</figure>
+
+<script>
+(function(){
+  var lb=document.getElementById('lb'),img=document.getElementById('lbImg'),cap=document.getElementById('lbCap'),last=null;
+  function close(){lb.hidden=true;img.removeAttribute('src');if(last)last.focus();}
+  document.querySelectorAll('button[data-cap]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var i=b.querySelector('img');last=b;img.src=i.src;img.alt=i.alt;cap.textContent=b.dataset.cap||'';lb.hidden=false;document.getElementById('lbClose').focus();
+    });
+  });
+  document.getElementById('lbClose').addEventListener('click',close);
+  var cb=document.getElementById('copyEmail'),em=document.getElementById('email');
+  function selectEmail(){var r=document.createRange();r.selectNodeContents(em);var sel=window.getSelection();sel.removeAllRanges();sel.addRange(r);}
+  cb.addEventListener('click',function(){
+    function done(){cb.textContent='Copied';setTimeout(function(){cb.textContent='Copy email';},1800);}
+    try{navigator.clipboard.writeText(em.textContent).then(done,function(){selectEmail();cb.textContent='Selected, press copy';});}
+    catch(e){selectEmail();cb.textContent='Selected, press copy';}
+  });
+  lb.addEventListener('click',function(e){if(e.target===lb)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.hidden)close();});
+})();
+</script>
+</body>
+</html>
